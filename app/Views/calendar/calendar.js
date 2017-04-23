@@ -9,6 +9,6 @@ angular.module('morfo.calendar', ['ngRoute'])
   });
 }])
 
-.controller('CalendarCtrl', [function() {
-
+.controller('CalendarCtrl', [function($scope) {
+    
 }]);
