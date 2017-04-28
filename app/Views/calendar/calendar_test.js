@@ -10,6 +10,5 @@ describe('morfo.calendar module', function() {
       var view1Ctrl = $controller('CalendarCtrl');
       expect(view1Ctrl).toBeDefined();
     }));
-
   });
 });
