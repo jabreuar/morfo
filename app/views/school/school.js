@@ -9,6 +9,8 @@ angular.module('morfo.school', ['ngRoute'])
   });
 }])
 
+
+
 .controller('schoolctrl', ['$scope', 'SchoolService', function($scope, SchoolService) {
 
   $scope.getAdressDetail = function(){
@@ -19,9 +21,38 @@ angular.module('morfo.school', ['ngRoute'])
 			});
 	}
 
-	$scope.submitForm = function(isValid) {
-		if (isValid) { 
-			alert('our form is amazing');
+	$scope.saveSchool = function() {
+
+   /*{
+    "cep": "98700001",
+    "emailAlt" : "teste@gmail.com",
+    "endereco" : "1",
+    "nnCategoria" : "1",
+    "nnEmail": "teste@gmail.com",
+    "nnNivel" : "1",
+    "nnNome": "ESCOLA ESTADUAL MENINO FROM HELL",
+    "nnSenha": "123456",
+    "telefone" : "99999999"
+   }*/
+     
+    var data = { 
+			nnSenha: $scope.password, 
+			nnNome: $scope.schoolname, 
+			//city: $scope.city, 
+			//state: $scope.state, 
+			endereco: $scope.address, 
+			nnEmail: $scope.email, 
+			cep: $scope.postalcode,
+			telefone: $scope.phoneNumber,
+			emailAlt: $scope.secondaryEmail,
+			nnNivel : "1",
+			nnCategoria : "1"
 		}
+
+    SchoolService.saveNewSchool(data).then(function(response){
+         if(response.status == "200"){
+					 alert("Cadastro Realizado com Sucesso!");
+				 }
+		});
 	};
 }]);

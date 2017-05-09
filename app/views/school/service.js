@@ -10,6 +10,22 @@ return $http({method: 'GET', url: 'https://viacep.com.br/ws/'+ postalCode + '/js
         }, function(response) {
             alert('Ocorreu um erro ao obter o cep');
       });
-    }
+    },
+   saveNewSchool: function(data){
+       var req = {
+            method: 'POST',
+            url: 'http://morfo.cloudapp.net:8080/morfologia/api/v1/instituicoes',
+            headers: {
+            'Content-Type': "application/json"
+            },
+            data: JSON.stringify(data)
+        }
+
+       return $http(req).then(function(response){
+            return response;
+        }, function(){
+
+        });
+   }
   };
 }]);
