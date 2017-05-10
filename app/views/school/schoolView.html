@@ -43,7 +43,7 @@
   <div class="form-group">
     <label for="postalcode" class="col-sm-2 control-label">CEP:</label>
     <div class="col-md-1">
-      <input type="text" class="form-control" id="postalcode" name="postalcode" ng-blur="getAdressDetail()" ng-model="postalcode" ng-pattern="/^[0-9]{8}$/" required>
+      <input type="text" class="form-control" id="postalcode" name="postalcode" ng-blur="getAdressDetail()" ng-model="postalcode" maxlength="8" ng-pattern="/^[0-9]{8}$/" required>
       <div class="help-block" ng-messages="addSchoolForm.postalcode.$error" ng-show="addSchoolForm.postalcode.$touched">
         <div ng-messages-include="messages.html"></div>
       </div>
@@ -69,7 +69,7 @@
   <div class="form-group">
     <label for="phoneNumber" class="col-sm-2 control-label">Telefone:</label>
     <div class="col-md-4">
-      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" required>
+      <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="14" class="form-control" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" required>
       <div class="help-block" ng-messages="addSchoolForm.phoneNumber.$error" ng-show="addSchoolForm.phoneNumber.$touched">
         <div ng-messages-include="messages.html"></div>
       </div>
@@ -84,16 +84,16 @@
  <div class="form-group">
     <label for="optionsRadios1" class="col-sm-2 control-label">Categoria:</label>
     <div class="col-md-6">
-       <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Municipal
-       <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Estadual
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Privada
+       <input type="radio" name="optionsRadios" id="optionsRadios1" ng-model="category" value="1" checked>Municipal
+       <input type="radio" name="optionsRadios" id="optionsRadios2" ng-model="category" value="2">Estadual
+       <input type="radio" name="optionsRadios" id="optionsRadios2" ng-model="category" value="3">Privada
     </div>
   </div>
   <div class="form-group">
     <label for="address" class="col-sm-2 control-label">Nível:</label>
     <div class="col-md-6">
-       <input type="checkbox" value="" checked>Médio
-       <input type="checkbox" value="">Técnico
+       <input type="checkbox" value="Médio" checked>Médio
+       <input type="checkbox" value="Técnico">Técnico
     </div>
   </div>
   <hr />

@@ -46,7 +46,7 @@ angular.module('morfo.school', ['ngRoute'])
 			telefone: $scope.phoneNumber,
 			emailAlt: $scope.secondaryEmail,
 			nnNivel : "1",
-			nnCategoria : "1"
+			nnCategoria : $scope.category
 		}
 
     SchoolService.saveNewSchool(data).then(function(response){
